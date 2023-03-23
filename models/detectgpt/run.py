@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import datasets
 import transformers
+import openai
 import re
 import torch
 import torch.nn.functional as F
@@ -783,7 +784,7 @@ if __name__ == '__main__':
     API_TOKEN_COUNTER = 0
 
     if args.openai_model is not None:
-        import openai
+       
         assert args.openai_key is not None, "Must provide OpenAI API key as --openai_key"
         openai.api_key = args.openai_key
 
