@@ -10,6 +10,7 @@ Paper Link -
 
 The schema was DocumentPrediction is:
 
+```
 DocumentPredictions{ 
     documents	
     [{ 
@@ -37,6 +38,8 @@ DocumentPredictions{
             }]
     }]
 }
+
+```
 
 threshold - 0.65 - completed_geenerated_prob 
 token limit 200 - truncated function
