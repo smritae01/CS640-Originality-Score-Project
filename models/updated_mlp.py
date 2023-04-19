@@ -1,14 +1,17 @@
 import numpy as np
 import pandas as pd
-from sklearn.neural_network import MLPRegressor
+from sklearn.neural_network import MLPRegressor, MLPClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score,confusion_matrix
+import matplotlib.pyplot as plt
 
 # TODO implement better activation function with custom MLP regressor class with embedded forward pass
 # TODO update model with the updated dataset columns
 
 # Custom MLPRegressor with transform method
-class CustomMLPRegressor(MLPRegressor):
+class CustomMLPClassifier(MLPClassifier):
     def transform(self, X):
         return softmax(self.predict(X))
 
@@ -17,23 +20,28 @@ def softmax(x):
     e_x = np.exp(x - np.max(x))
     return e_x / e_x.sum(axis=0)
 
-data = pd.read_csv('/home/ssj/CS640-Originality-Score-Project/data/AI_data.csv')
-data = data.drop(['Unnamed: 8', 'DetectGPT', 'GPT Zero '], axis=1)
+data = pd.read_csv('../data/combined_data.csv', encoding="ISO-8859-1")
 data.dropna(inplace=True)
+train, test = train_test_split(data, test_size=0.4)
+# data = data.drop(['Unnamed: 8', 'DetectGPT', 'GPT Zero '], axis=1)
+print(len(train),len(test))
+print(len(data))
 
-# data.head(10)
+x_train = train.iloc[:, 2:8].values
 
-data['Label'] = 1
-y_pred = data.iloc[:, 2:6].values
-# print(y_pred)
-y_true = data['Label'].values
+y_train = train['Label'].values
+
+x_test = test.iloc[:, 2:8].values
+
+y_test = test['Label'].values
 
 scaler = StandardScaler()
-y_pred = scaler.fit_transform(y_pred)
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.fit_transform(x_test)
 
-mlp = CustomMLPRegressor(hidden_layer_sizes=(10,7,4), activation='relu', solver='adam', max_iter=10000)
+mlp = CustomMLPClassifier(hidden_layer_sizes=(10,7,6), activation='relu', solver='adam', max_iter=10000)
 
-mlp.fit(y_pred, y_true)
+mlp.fit(x_train, y_train)
 
 weights = mlp.coefs_[-1]  # Access the last layer weights
 
@@ -46,11 +54,42 @@ print("Open AI Classifier:", normalized_weights[0][0])
 print("GPT Zero:(perplexity)", normalized_weights[1][0])
 print("GPT Zero:(burstiness)", normalized_weights[2][0])
 print("DetectGPT:(Z score)", normalized_weights[3][0])
+print("GPTZero verdict", normalized_weights[4][0])
+print("DetectGPT verdict", normalized_weights[5][0])
 print("\n")
 
 # y_combined = np.dot(y_pred, normalized_weights)
 # print("Predicted labels:\n", y_pred)
 
 print("sum of weights:\n", 
-      np.abs(normalized_weights[0][0])+np.abs(normalized_weights[1][0])+
-      np.abs(normalized_weights[2][0])+np.abs(normalized_weights[3][0]))
+      np.abs(normalized_weights[0][0])+np.abs(normalized_weights[1][0])
++np.abs(normalized_weights[2][0])+np.abs(normalized_weights[3][0])+np.abs(normalized_weights[4][0])
++np.abs(normalized_weights[5][0]))
+
+
+y_pred = mlp.predict(x_test)
+
+#Originality Score computation
+
+# og_scores = np.dot(y_pred,normalized_weights)
+
+print("Metrics on Test set:")
+print("Accuracy:", accuracy_score(y_pred, y_test))
+print("Precision:", precision_score(y_pred, y_test))
+print("Recall:", recall_score(y_pred, y_test))
+print("F1 score:", f1_score(y_pred, y_test))
+
+conf_matrix = confusion_matrix(y_true=y_test, y_pred=y_pred)
+#
+# Print the confusion matrix using Matplotlib
+#
+fig, ax = plt.subplots(figsize=(5, 5))
+ax.matshow(conf_matrix, cmap=plt.cm.Oranges, alpha=0.3)
+for i in range(conf_matrix.shape[0]):
+    for j in range(conf_matrix.shape[1]):
+        ax.text(x=j, y=i,s=conf_matrix[i, j], va='center', ha='center', size='xx-large')
+ 
+plt.xlabel('Predictions', fontsize=18)
+plt.ylabel('Actuals', fontsize=18)
+plt.title('Confusion Matrix', fontsize=18)
+plt.show()
