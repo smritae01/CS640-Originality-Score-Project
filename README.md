@@ -4,9 +4,23 @@ Drive link with the dataset - https://drive.google.com/drive/folders/18JWM2I-ZCa
 
 Paper Link - 
 
+## DetectGPT Implementation
+
+Code sourced from official DetectGPT repo as well as an open-source prompt implementation from https://github.com/BurhanUlTayyab/DetectGPT
+
+### Features obtained from the code 
+
+* Mean z-score : mean of the measure of how many standard deviations below or above the population mean a raw score is for the z-scores in all sentences of an entry. 
+
+If the z-score obtained is between the range of 0.25 - 0.7 then the text is classified as Human-written. 
+If the z-score obtained is higher than 0.7 or lower than 0.25, then the text is classified as AI-generated.
+
+* z-scores are obtained by the formula (real_log_likelihood - mean_generated_log_likelihood)/std_generated_log_likelihood
+
+
 ## GPTZero Implementation
 
-### Interpretting the Results
+### Interpreting the Results
 
 The schema was DocumentPrediction is:
 

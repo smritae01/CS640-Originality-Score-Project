@@ -1,0 +1,5 @@
+translation is a translation in which the source text is translated literally, with only minor changes to word choice or grammar.
+
+A calque may be a literal translation, or it may be an adaptation of the source text to make it more suitable for the target language. The translation may be faithful or free, depending on the degree to which the original text is used.
+
+The use of calque can be traced back to the days of Classical Latin, when translations were often made from Greek and other ancient languages into Latin. In later centuries, calques were used in law, medicine, and other academic fields, as well as in popular culture.

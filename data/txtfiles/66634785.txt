@@ -1,0 +1,3 @@
+and portable typewriter-based cipher machine designed by the United States Army during World War II. It was the first commercial cryptographic machine, and its design influenced later machines.
+
+The SYKO cipher device was a compact and portable typewriter-based cipher machine designed by the United States Army during World War II. It was the first commercial cryptographic machine, and its design influenced later machines. The machine used a substitution cipher that used a 26-letter alphabet, with each letter being assigned a unique code letter. The machine had a keystroke speed of 70 words per minute, and could encrypt up to 128 characters per minute.

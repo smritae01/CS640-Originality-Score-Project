@@ -1,0 +1,1 @@
+to represent audio and video files. It is a lossy compression format, which means that less data is stored than the original files.

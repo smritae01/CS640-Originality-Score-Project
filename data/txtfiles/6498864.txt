@@ -1,0 +1,3 @@
+fractals, where the size, shape, and distribution of the fractals can vary over an extended range. This makes multifractals different from fractals in that the fractals themselves are not invariant under changes in magnification or scale.
+
+Multifractal systems were first studied by BenoÃ®t Mandelbrot in the early 1970s. He found that a variety of natural phenomena, from seashells to galaxies, exhibit chaotic behavior that is best explained using a multifractal model. This has led to the development of many variations on the multifractal model, some of which are used to study complex phenomena such as financial markets and brain waves.

@@ -1,0 +1,13 @@
+363 (three hundred [and] sixty-three) is the natural number following 362 and preceding 364. In mathematics
+  363 is the sum of nine consecutive primes (23 + 29 + 31 + 37 + 41 + 43 + 47 + 53 + 59).
+  It is an odd, composite, positive, real integer, composed of a prime (3) and a prime squared (112).
+  The 363rd day in a year is 29 December (28 December in leap years).
+  363 is a palindromic number in bases 3, 10, 11 and 32.
+  Any subset of its digits is divisible by three.
+  363 is a repdigit (BB) in base 32.
+  363 is a 122-gonal number.
+  363 is a deficient number.
+  363 is the sum of five consecutive powers of 3 (3 + 9 + 27 + 81 + 243) deficient number.
+  The Mertens function returns 0.
+  363 cubits is the solution given to Rhind Mathematical Papyrus question 50 â find the side length of an octagon with the same area as a circle 9 khet in diameter.
+  363 can be expressed as the sum of three squares in

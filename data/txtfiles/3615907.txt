@@ -1,0 +1,3 @@
+wing, because of its sideways orientation) is a wing design on an aircraft that allows the aircraft to achieve increased lift by using more of the wing surface than a conventional wing. The increased lift is achieved by creating a greater angle of attack between the wing and the ground, which causes the air flowing over the wing to break away from the aircraft more quickly. This allows more air to flow over the wing and create more lift. 
+
+An oblique wing is typically found on larger aircraft, such as commercial jets and cargo planes, because it allows them to carry heavier payloads and fly at higher speeds. It is also used on aircraft that need to avoid obstacles in their path, such as fighter jets.

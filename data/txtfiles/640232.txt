@@ -1,0 +1,3 @@
+voice recognition software products marketed by IBM. ViaVoice was discontinued in October 2016.
+
+IBM ViaVoice was a range of language-specific voice recognition software products marketed by IBM. ViaVoice was discontinued in October 2016. ViaVoice was designed to be easy to use, making it a good choice for users who need to use voice recognition software frequently. ViaVoice supported a variety of languages, including English, French, Spanish, Italian, German, Portuguese, Japanese, and Chinese. ViaVoice also had support for voice commands and macros, making it easy to automate tasks.

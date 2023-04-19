@@ -2,17 +2,17 @@ import csv
 import os
 from gptzero import GPTZeroAPI
 
-api_key = '6341e691c2b8492baef3035fec80d31a' # replace API key
+api_key = 'a14d481f54b44db4a9f74c5b3e538aea' # replace API key
 gptzero_api = GPTZeroAPI(api_key)
 
-input_csv_path = './data/data.csv'
-output_csv_path = './data/results.csv' # keep replacing this if you want to preserve all data
-txt_files_dir = './data/txtfiles/'
+input_csv_path = './data/gpt0-rem.csv'
+output_csv_path = './data/results1.csv' # keep replacing this if you want to preserve all data
+txt_files_dir = './data/txtfiles'
 
 if not os.path.exists(txt_files_dir):
     os.makedirs(txt_files_dir, mode=0o777)
 
-with open(input_csv_path, 'r', encoding='utf-8') as csvfile:
+with open(input_csv_path, 'r', encoding='ISO-8859-1') as csvfile:
     reader = csv.reader(csvfile)
 
     next(reader)
@@ -45,7 +45,7 @@ with open(input_csv_path, 'r', encoding='utf-8') as csvfile:
             comp_gen_prob = response['documents'][0]['completely_generated_prob']
             overall_burstiness = response['documents'][0]['overall_burstiness']
             
-            gptzero_prediction = "AI" if comp_gen_prob > 0.65 else "Human"
+            gptzero_prediction = 1 if comp_gen_prob > 0.65 else 0
 
             results.append([row_id, row_content, avg_gen_prob, comp_gen_prob, overall_burstiness, avg_perplexity, gptzero_prediction])
 

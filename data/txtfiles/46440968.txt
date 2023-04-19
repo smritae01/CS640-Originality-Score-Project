@@ -1,0 +1,7 @@
+â September 8, 1976) was an American mathematician and scientist who worked on the theory of partial differential equations. Cairns is known for his work on the heat equation, the Cauchy problem, and the EulerâLagrange equation.
+
+Cairns was born in Syracuse, New York to Scottish parents. He attended Syracuse University, where he received his B.A. in 1912 and his M.A. in 1913. He then moved to Johns Hopkins University, where he received his Ph.D. in 1916 under the supervision of David Hilbert. After completing his doctoral studies, Cairns returned to Syracuse University as a faculty member.
+
+Cairns's early work focused on the theory of partial differential equations, specifically those involving fluid flow. In particular, he developed a technique known as the Cauchy problem that allows engineers to solve problems involving complicated fluids flow patterns in almost exact fashion. This technique is still in use today and is one of the most commonly used methods for solving problems involving fluids flow.
+
+Cairns's later work involved developing a theory of heat transfer that is still used today by engineers. His work on this topic led him to develop a method

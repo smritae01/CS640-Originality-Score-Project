@@ -3,14 +3,14 @@ from transformers import AutoTokenizer
 from transformers import GPT2Tokenizer
 import re
 
-df = pd.read_csv('./data/GPT-wiki-intro.csv')
+df = pd.read_csv('Book1.csv')
 
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 
 max_tokens = 245
 
 # did it onky for the first 501 rows
-for i in range(500):
+for i in range(1002):
 
     intro_text = df.loc[i, 'wiki_intro']
 
@@ -23,6 +23,6 @@ for i in range(500):
         
         df.loc[i, 'wiki_intro'] = text
 
-df = df.iloc[:500]
+df = df.iloc[:1002]
 
-df.to_csv('./data/updated_wiki.csv', index=False)
+df.to_csv('Book1-updated.csv', index=False)

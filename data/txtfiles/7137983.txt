@@ -1,0 +1,5 @@
+rate of a chemical reaction by the catalytic action of an enzyme. Enzymes are proteins that catalyze biochemical reactions in the body.
+
+Enzyme catalysis occurs when a protein molecule binds to a substrate molecule and catalyzes the chemical reaction at the site of the protein-substrate interaction. The catalyst is usually a small molecule, but sometimes it is a complex organic molecule. 
+
+Enzyme catalysis is important in many biological processes, including the synthesis of proteins, carbohydrate metabolism, and lipid metabolism. Enzyme catalysis also plays a role in industrial processes, such as the production of pharmaceuticals and pesticides.

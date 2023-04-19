@@ -1,30 +1,14 @@
-# DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature
+# DetectGPT
+An open-source Pytorch implementation of [DetectGPT](https://arxiv.org/pdf/2301.11305.pdf)
 
-## Official implementation of the experiments in the [DetectGPT paper](https://arxiv.org/abs/2301.11305v1).
+## Installation
+pip install -r requirements.txt
 
-An interactive demo of DetectGPT can be found [here](https://detectgpt.ericmitchell.ai).
+## Usage
+```python3 infer.py```
 
-## Instructions
+## Acknowledgements
+1. Mitchell, Eric, et al. "DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature." arXiv preprint arXiv:2301.11305 (2023).
 
-First, install the Python dependencies:
 
-    python3 -m venv env
-    source env/bin/activate
-    pip install -r requirements.txt
 
-Second, run any of the scripts (or just individual commands) in `paper_scripts/`.
-
-If you'd like to run the WritingPrompts experiments, you'll need to download the WritingPrompts data from [here](https://www.kaggle.com/datasets/ratthachat/writing-prompts). Save the data into a directory `data/writingPrompts`.
-
-**Note: Intermediate results are saved in `tmp_results/`. If your experiment completes successfully, the results will be moved into the `results/` directory.**
-
-## Citing the paper
-If our work is useful for your own, you can cite us with the following BibTex entry:
-
-    @misc{mitchell2023detectgpt,
-        url = {https://arxiv.org/abs/2301.11305},
-        author = {Mitchell, Eric and Lee, Yoonho and Khazatsky, Alexander and Manning, Christopher D. and Finn, Chelsea},
-        title = {DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature},
-        publisher = {arXiv},
-        year = {2023},
-    }
