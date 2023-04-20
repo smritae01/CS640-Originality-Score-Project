@@ -7,10 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score,confusion_matrix
 import matplotlib.pyplot as plt
 
-# TODO implement better activation function with custom MLP regressor class with embedded forward pass
-# TODO update model with the updated dataset columns
-
-# Custom MLPRegressor with transform method
+# Custom MLPClassifier with transform method
 class CustomMLPClassifier(MLPClassifier):
     def transform(self, X):
         return softmax(self.predict(X))
