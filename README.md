@@ -71,8 +71,10 @@ GPTZero recommends using completely\_generated\_prob to understand whether a doc
 
 We have followed the threshold of 0.65 for the classification for GPTZero. On our validation dataset, we set all documents with completely\_generated\_prob under the threshold as human, and above as AI.
 
-## Files and their purpose
+## Files, their purpose and how to recreate
 
 In the gptzero-api directory, run the main.py file. This will first convert the csv cells into txt files in the "./data/txtfiles" directory and then generates the csv file to get the relevant information from GPTZero.
 
-Note: Only 250 requests are possible per hour for the GPTZero API
+Note: Only 250 requests are possible per hour for the GPTZero API.
+
+"updated_mlp.py" contains our code for the MLP. Run this file to get the accuracy and other metrics. It will also give model weights in the model_weights.csv file. Then run the originality.ipynb notebook to get final.csv with originality scores.
