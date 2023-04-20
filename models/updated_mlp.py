@@ -20,7 +20,7 @@ def softmax(x):
     e_x = np.exp(x - np.max(x))
     return e_x / e_x.sum(axis=0)
 
-data = pd.read_csv('../data/combined_data.csv', encoding="ISO-8859-1")
+data = pd.read_csv('./data/combined_data.csv', encoding="ISO-8859-1")
 data.dropna(inplace=True)
 train, test = train_test_split(data, test_size=0.4)
 # data = data.drop(['Unnamed: 8', 'DetectGPT', 'GPT Zero '], axis=1)
@@ -58,6 +58,28 @@ print("GPTZero verdict", normalized_weights[4][0])
 print("DetectGPT verdict", normalized_weights[5][0])
 print("\n")
 
+# np.savetxt("./data/normalized_weights.csv", normalized_weights, delimiter=",")
+
+# df = pd.read_csv("./data/normalized_weights.csv")
+# df.loc[0, ""] = 'Open AI Classifier'
+# df.loc[1, ""] = 'GPT Zero: (perplexity)'
+# df.loc[2, ""] = 'GPT Zero: (burstiness)'
+# df.loc[3, ""] = 'DetectGPT: (Z score)'
+# df.loc[4, ""] = 'GPTZero verdict'
+# df.loc[5, ""] = 'DetectGPT verdict'
+
+# df.to_csv("./data/normalized_weights.csv", index = False)
+
+weights_file = './data/normalized_weights.csv'
+df = pd.DataFrame({
+'Feature': ['Open AI Classifier', 'GPT Zero: (perplexity)', 'GPT Zero: (burstiness)', 'DetectGPT: (Z score)',
+'GPTZero verdict', 'DetectGPT verdict'],
+'Weight': [normalized_weights[0][0], normalized_weights[1][0], normalized_weights[2][0], normalized_weights[3][0],
+normalized_weights[4][0], normalized_weights[5][0]]
+})
+df.to_csv(weights_file, index=False)
+
+
 # y_combined = np.dot(y_pred, normalized_weights)
 # print("Predicted labels:\n", y_pred)
 
@@ -79,6 +101,12 @@ print("Precision:", precision_score(y_pred, y_test))
 print("Recall:", recall_score(y_pred, y_test))
 print("F1 score:", f1_score(y_pred, y_test))
 
+with open('./data/test_set_metrics.txt', 'w') as f:
+    f.write(f"Accuracy: {accuracy_score(y_pred, y_test)}\n")
+    f.write(f"Precision: {precision_score(y_pred, y_test)}\n")
+    f.write(f"Recall: {recall_score(y_pred, y_test)}\n")
+    f.write(f"F1 score: {f1_score(y_pred, y_test)}\n")
+
 conf_matrix = confusion_matrix(y_true=y_test, y_pred=y_pred)
 #
 # Print the confusion matrix using Matplotlib
@@ -92,4 +120,5 @@ for i in range(conf_matrix.shape[0]):
 plt.xlabel('Predictions', fontsize=18)
 plt.ylabel('Actuals', fontsize=18)
 plt.title('Confusion Matrix', fontsize=18)
+plt.savefig('confusion_matrix.png')
 plt.show()

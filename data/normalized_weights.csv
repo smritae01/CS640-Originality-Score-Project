@@ -1,0 +1,7 @@
+Feature,Weight
+Open AI Classifier,-0.14031482147819296
+GPT Zero: (perplexity),0.09509237637237106
+GPT Zero: (burstiness),0.11457903276010972
+DetectGPT: (Z score),0.20606583768154013
+GPTZero verdict,0.2800859357922737
+DetectGPT verdict,-0.1638619959155124
