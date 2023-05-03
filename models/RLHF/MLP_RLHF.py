@@ -7,21 +7,9 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import train_test_split
 from stable_baselines3 import PPO
 from os import path
+from models.FC_NN import FCNN
 
 base_path = '/home/shaunak_joshi/CS640-Originality-Score-Project/'
-
-
-# Custom MLPClassifier with transform method
-class CustomMLPClassifier(MLPClassifier):
-    def transform(self, X):
-        return softmax(self.predict(X))
-
-
-# Custom activation function to normalize the output
-def softmax(x):
-    e_x = np.exp(x - np.max(x))
-    return e_x / e_x.sum(axis=0)
-
 
 # Load data
 data = pd.read_csv(path.join(base_path, 'data/combined_data.csv'), encoding="ISO-8859-1")
@@ -37,7 +25,7 @@ x_train = scaler.fit_transform(x_train)
 x_test = scaler.fit_transform(x_test)
 
 # Train the MLP
-mlp = CustomMLPClassifier(hidden_layer_sizes=(10,7,6), activation='relu', solver='adam', max_iter=10000)
+mlp = FCNN.FCNNClassifier(hidden_layer_sizes=(10,7,6), activation='relu', solver='adam', max_iter=10000)
 mlp.fit(x_train, y_train)
 
 # Create the environment

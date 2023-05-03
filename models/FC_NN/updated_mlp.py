@@ -6,16 +6,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score,confusion_matrix
 import matplotlib.pyplot as plt
-
-# Custom MLPClassifier with transform method
-class CustomMLPClassifier(MLPClassifier):
-    def transform(self, X):
-        return softmax(self.predict(X))
-
-# Custom activation function to normalize the output
-def softmax(x):
-    e_x = np.exp(x - np.max(x))
-    return e_x / e_x.sum(axis=0)
+from models.FC_NN import FCNN
 
 data = pd.read_csv('./data/combined_data.csv', encoding="ISO-8859-1")
 data.dropna(inplace=True)
@@ -36,7 +27,7 @@ scaler = StandardScaler()
 x_train = scaler.fit_transform(x_train)
 x_test = scaler.fit_transform(x_test)
 
-mlp = CustomMLPClassifier(hidden_layer_sizes=(10,7,6), activation='relu', solver='adam', max_iter=10000)
+mlp = FCNN.FCNNClassifier(hidden_layer_sizes=(10,7,6), activation='relu', solver='adam', max_iter=10000)
 
 mlp.fit(x_train, y_train)
 
@@ -119,3 +110,9 @@ plt.ylabel('Actuals', fontsize=18)
 plt.title('Confusion Matrix', fontsize=18)
 plt.savefig('confusion_matrix.png')
 plt.show()
+
+
+# Use the custom activation functions with the CustomMLPClassifier
+mlp_silu = FCNNClassifier(hidden_layer_sizes=(10, 7, 6), activation='silu', solver='adam', max_iter=10000)
+mlp_prelu = FCNNClassifier(hidden_layer_sizes=(10, 7, 6), activation='prelu', solver='adam', max_iter=10000)
+mlp_gelu = FCNNClassifier(hidden_layer_sizes=(10, 7, 6), activation='gelu', solver='adam', max_iter=10000)
