@@ -1,4 +1,4 @@
-from models.RLHF import RL
+import RL
 import numpy as np
 import pandas as pd
 from sklearn.neural_network import MLPRegressor, MLPClassifier
@@ -24,7 +24,7 @@ def softmax(x):
 
 
 # Load data
-data = pd.read_csv(path.join(base_path, 'data/combined_data.csv'), encoding="ISO-8859-1")
+data = pd.read_csv("../../data/combined_data.csv", encoding="ISO-8859-1")
 data.dropna(inplace=True)
 train, test = train_test_split(data, test_size=0.4)
 x_train = train.iloc[:, 2:8].values
