@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.neural_network import MLPRegressor
 
 # Read the predictions and ground truth from the CSV file
-data = pd.read_csv('../data/models-output.csv')
+data = pd.read_csv('../../data/models-output.csv')
 data.dropna(inplace=True)
 y_pred = data.iloc[:, :3].values
 
